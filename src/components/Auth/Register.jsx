@@ -137,10 +137,7 @@ const Register = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col gap-1 my-5 font-sans text-[14px] text-green-800 font-extrabold">
-                  <h1 className="underline">Forgot Your User Name?</h1>
-                  <h1 className="underline">Forgot Your Password?</h1>
-                </div>
+
                 <div className="flex justify-end">
                   <button
                     onClick={() => {
