@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import FoodLogo from '../../assets/food0logo.png';
 import { Button, Drawer } from 'antd';
-import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
+import { CloseOutlined } from '@ant-design/icons';
 import { TiThMenuOutline } from 'react-icons/ti';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
+
+  const navigate = useNavigate();
 
   const showDrawer = () => {
     setIsDrawerVisible(true);
@@ -21,7 +24,7 @@ const NavBar = () => {
         {/* log and other things */}
         <div className="flex justify-between items-center">
           <img src={FoodLogo} alt="" className="w-24 h-24" />
-          <div className=" hidden md:flex justify-between items-center gap-5">
+          <div className=" hidden md:flex justify-between items-center gap-5 text-[#181F26] text-[20px] font-sans font-semibold">
             <h1>Menu</h1>
             <h1>Rwards</h1>
             <h1>Gift Cards</h1>
@@ -31,6 +34,9 @@ const NavBar = () => {
         {/* sign up buttons */}
         <div className="hidden md:flex mr-10 gap-3">
           <button
+            onClick={() => {
+              navigate('/account/signin');
+            }}
             type="button"
             class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
           >
@@ -72,12 +78,17 @@ const NavBar = () => {
 
             <div className="border-t border-gray-300 shadow-lg shadow-black mx-5 my-5"></div>
 
-            <Button class="text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center  items-center dark:focus:ring-gray-500 me-2 mb-2">
+            <button
+              onClick={() => {
+                navigate('/account/signin');
+              }}
+              class="text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center  items-center dark:focus:ring-gray-500 me-2 mb-2"
+            >
               Sign in
-            </Button>
-            <Button class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center  items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
+            </button>
+            <button class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center  items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
               Join Now
-            </Button>
+            </button>
           </div>
         </Drawer>
       </div>
