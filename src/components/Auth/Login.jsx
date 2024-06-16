@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../common/Header';
-
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 const Login = () => {
@@ -30,7 +29,6 @@ const Login = () => {
             }}
           >
             {({
-              isSubmitting,
               values,
               handleChange,
               handleBlur,
