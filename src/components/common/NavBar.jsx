@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FoodLogo from '../../assets/food0logo.png';
+import MainLogo from '../../assets/MainLogo.jpeg';
 import { Button, Drawer } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import { TiThMenuOutline } from 'react-icons/ti';
@@ -23,7 +23,12 @@ const NavBar = () => {
       <div className="flex justify-between items-center mx-auto">
         {/* log and other things */}
         <div className="flex justify-between items-center">
-          <img src={FoodLogo} alt="" className="w-24 h-24" />
+          <img
+            src={MainLogo}
+            alt="Food Logo"
+            className="h-16 w-auto object-contain p-2"
+          />
+
           <div className=" hidden md:flex justify-between items-center gap-5 text-[#181F26] text-[20px] font-sans font-semibold">
             <h1>Menu</h1>
             <h1>Rwards</h1>
