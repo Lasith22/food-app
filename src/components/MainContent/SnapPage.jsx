@@ -1,6 +1,5 @@
 import { Image } from 'antd';
-import React, { useState } from 'react';
-import Camera from 'react-html5-camera-photo';
+import React, { useRef, useState } from 'react';
 import Header from '../common/Header';
 import {
   BrowserView,
@@ -8,17 +7,12 @@ import {
   isBrowser,
   isMobile,
 } from 'react-device-detect';
-
+import { Camera } from 'react-camera-pro';
 const SnapPage = () => {
-  const [dataUri, setDataUri] = useState('');
+  const camera = useRef(null);
+  const [image, setImage] = useState(null);
   const [isCameraOpen, setIsCameraOpen] = useState(false);
-  function handleTakePhotoAnimationDone(dataUri) {
-    console.log('takePhoto');
-    setDataUri(dataUri);
-  }
-  const openCamera = () => {
-    setIsCameraOpen(true);
-  };
+
   return (
     <>
       <Header />
@@ -30,16 +24,22 @@ const SnapPage = () => {
           <h1>This is rendered only on mobile</h1>
         </MobileView> */}
         {!isCameraOpen && (
-          <button onClick={openCamera} className="open-camera-button">
+          <button
+            onClick={() => setIsCameraOpen(true)}
+            className="open-camera-button"
+          >
             Open Camera
           </button>
         )}
         {isCameraOpen && (
-          <Camera
-            onTakePhoto={(dataUri) => {
-              handleTakePhoto(dataUri);
-            }}
-          />
+          <div>
+            <Camera ref={camera} />
+            <button onClick={() => setImage(camera.current.takePhoto())}>
+              Take photo
+            </button>
+            {image && <img src={image} alt="Taken photo" />}
+            <button onClick={() => setIsCameraOpen(false)}>Close Camera</button>
+          </div>
         )}
       </div>
     </>
