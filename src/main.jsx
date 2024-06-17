@@ -12,6 +12,7 @@ import NotFound from './components/Auth/NotFound.jsx';
 import Login from './components/Auth/Login.jsx';
 import Register from './components/Auth/Register.jsx';
 import SnapPage from './components/MainContent/SnapPage.jsx';
+import ScanningImage from './components/MainContent/ScanningImage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: '/snap',
     element: <SnapPage />,
+  },
+  {
+    path: '/scanning',
+    element: <ScanningImage />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(

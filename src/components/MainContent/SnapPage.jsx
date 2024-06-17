@@ -2,7 +2,7 @@ import { Image, Tag, Card } from 'antd';
 import React, { useRef, useState } from 'react';
 import { GrGallery } from 'react-icons/gr';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-
+import { useNavigate } from 'react-router-dom';
 import Header from '../common/Header';
 import {
   BrowserView,
@@ -12,8 +12,11 @@ import {
 } from 'react-device-detect';
 import { FaCamera } from 'react-icons/fa';
 import BackgroundImage from '../../assets/foot-cam.jpg';
+
 const SnapPage = () => {
   const [image, setImage] = useState(null);
+
+  const navigate = useNavigate();
 
   const fileInputRef = useRef(null);
   const galleryInputRef = useRef(null);
@@ -23,6 +26,7 @@ const SnapPage = () => {
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setImage(imageUrl);
+      navigate('/scanning', { state: { imageUrl } });
     }
   };
 
