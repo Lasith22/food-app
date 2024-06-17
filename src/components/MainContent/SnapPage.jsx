@@ -1,5 +1,8 @@
-import { Image, Tag } from 'antd';
+import { Image, Tag, Card } from 'antd';
 import React, { useRef, useState } from 'react';
+import { GrGallery } from 'react-icons/gr';
+import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
+
 import Header from '../common/Header';
 import {
   BrowserView,
@@ -11,7 +14,10 @@ import { FaCamera } from 'react-icons/fa';
 import BackgroundImage from '../../assets/foot-cam.jpg';
 const SnapPage = () => {
   const [image, setImage] = useState(null);
+
   const fileInputRef = useRef(null);
+  const galleryInputRef = useRef(null);
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -23,6 +29,11 @@ const SnapPage = () => {
   const handleImageClick = () => {
     fileInputRef.current.click();
   };
+
+  const handleCardClick = () => {
+    galleryInputRef.current.click();
+  };
+
   return (
     <>
       <Header />
@@ -89,6 +100,27 @@ const SnapPage = () => {
                     <p>Click a Snap</p>
                   </div>
                 )}
+              </div>
+
+              <div className="mt-10 w-full">
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  ref={galleryInputRef}
+                  className="hidden"
+                />
+                <Card className="w-full bg-[#F7F9FA]" onClick={handleCardClick}>
+                  <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center gap-4">
+                      <GrGallery size={20} />
+                      <h1 className="text-[#181F26] font-sans text-[12px] font-bold leading-tight tracking-custom">
+                        Or Add from Your Gallery
+                      </h1>
+                    </div>
+                    <MdOutlineKeyboardArrowRight size={30} />
+                  </div>
+                </Card>
               </div>
             </div>
           </div>
