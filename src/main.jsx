@@ -11,6 +11,7 @@ import {
 import NotFound from './components/Auth/NotFound.jsx';
 import Login from './components/Auth/Login.jsx';
 import Register from './components/Auth/Register.jsx';
+import SnapPage from './components/MainContent/SnapPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/account/create',
     element: <Register />,
+  },
+  {
+    path: '/snap',
+    element: <SnapPage />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(

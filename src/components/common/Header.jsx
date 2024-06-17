@@ -1,9 +1,9 @@
 import React from 'react';
-import FoodLogo from '../../assets/food0logo.png';
+import MainLogo from '../../assets/MainLogo.jpeg';
 const Header = () => {
   return (
     <div>
-      <img src={FoodLogo} alt="" className="w-24 h-24" />
+      <img src={MainLogo} alt="" className="h-16 w-auto object-contain p-2" />
       <div className="border-t border-gray-300 shadow-lg shadow-black mb-5"></div>
     </div>
   );
