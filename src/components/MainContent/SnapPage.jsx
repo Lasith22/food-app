@@ -23,24 +23,7 @@ const SnapPage = () => {
         <MobileView>
           <h1>This is rendered only on mobile</h1>
         </MobileView> */}
-        {!isCameraOpen && (
-          <button
-            onClick={() => setIsCameraOpen(true)}
-            className="open-camera-button"
-          >
-            Open Camera
-          </button>
-        )}
-        {isCameraOpen && (
-          <div>
-            <Camera ref={camera} />
-            <button onClick={() => setImage(camera.current.takePhoto())}>
-              Take photo
-            </button>
-            {image && <img src={image} alt="Taken photo" />}
-            <button onClick={() => setIsCameraOpen(false)}>Close Camera</button>
-          </div>
-        )}
+        <input type="file" accept="image/*" capture="environment"></input>
       </div>
     </>
   );
