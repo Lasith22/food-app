@@ -8,22 +8,39 @@ import {
   isBrowser,
   isMobile,
 } from 'react-device-detect';
+
 const SnapPage = () => {
   const [dataUri, setDataUri] = useState('');
+  const [isCameraOpen, setIsCameraOpen] = useState(false);
   function handleTakePhotoAnimationDone(dataUri) {
     console.log('takePhoto');
     setDataUri(dataUri);
   }
+  const openCamera = () => {
+    setIsCameraOpen(true);
+  };
   return (
     <>
       <Header />
       <div>
-        <BrowserView>
+        {/* <BrowserView>
           <h1>This is rendered only in browser</h1>
         </BrowserView>
         <MobileView>
           <h1>This is rendered only on mobile</h1>
-        </MobileView>
+        </MobileView> */}
+        {!isCameraOpen && (
+          <button onClick={openCamera} className="open-camera-button">
+            Open Camera
+          </button>
+        )}
+        {isCameraOpen && (
+          <Camera
+            onTakePhoto={(dataUri) => {
+              handleTakePhoto(dataUri);
+            }}
+          />
+        )}
       </div>
     </>
   );
