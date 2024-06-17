@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../common/Header';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { TailSpin } from 'react-loader-spinner';
+import { MdOutlineQrCodeScanner } from 'react-icons/md';
 
 const ScanningImage = () => {
   const state = useLocation();
+
   return (
     <>
       <Header />
@@ -18,6 +21,15 @@ const ScanningImage = () => {
         ) : (
           <p className="text-xl text-gray-500">No image captured</p>
         )}
+      </div>
+      <div className="flex flex-col items-center justify-center w-full p-4 mt-10">
+        <MdOutlineQrCodeScanner size={40} />
+        <h1 className="mt-2 text-[#8B98A6] text-[14px] font-sans font-semibold">
+          Doing Magic.
+        </h1>
+        <h1 className=" text-[#8B98A6] text-[14px] font-sans font-semibold">
+          Identifying food to track from your photo{' '}
+        </h1>
       </div>
     </>
   );
