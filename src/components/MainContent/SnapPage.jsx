@@ -9,21 +9,36 @@ import {
 } from 'react-device-detect';
 import { Camera } from 'react-camera-pro';
 const SnapPage = () => {
-  const camera = useRef(null);
   const [image, setImage] = useState(null);
-  const [isCameraOpen, setIsCameraOpen] = useState(false);
 
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl);
+    }
+  };
   return (
     <>
       <Header />
       <div>
-        {/* <BrowserView>
+        <BrowserView>
           <h1>This is rendered only in browser</h1>
         </BrowserView>
         <MobileView>
-          <h1>This is rendered only on mobile</h1>
-        </MobileView> */}
-        <input type="file" accept="image/*" capture="environment"></input>
+          <input
+            type="file"
+            accept="image/*"
+            capture="environment"
+            onChange={handleFileChange}
+            className="file-input"
+          />
+          {image && (
+            <div className="image-preview">
+              <img src={image} alt="Captured or Selected" />
+            </div>
+          )}
+        </MobileView>
       </div>
     </>
   );
