@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../common/Header';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { TailSpin } from 'react-loader-spinner';
+import { useLocation } from 'react-router-dom';
+
 import { MdOutlineQrCodeScanner } from 'react-icons/md';
 
 const ScanningImage = () => {

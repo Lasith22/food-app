@@ -4,12 +4,7 @@ import { GrGallery } from 'react-icons/gr';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import Header from '../common/Header';
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
-} from 'react-device-detect';
+import { BrowserView, MobileView } from 'react-device-detect';
 import { FaCamera } from 'react-icons/fa';
 import BackgroundImage from '../../assets/foot-cam.jpg';
 
